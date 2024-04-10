@@ -71,9 +71,9 @@
   <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/among-us.wtf/tag.min.js"></script> 
     <style>
         #iframe-container {
-            position: relative;
-            width: 800px;
-            height: 600px;
+            min-width: 300px;
+			width: 1141px;
+			margin: 0 auto;
         }
 
         #overlay {
@@ -194,7 +194,7 @@
       </div>
     </div>-->
 
-       <div id="container-full">
+       <div id="iframe-container">
         <div id="overlay"></div>
         <button id="load-iframe">Play</button>
         <iframe id="my-iframe" src="" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
