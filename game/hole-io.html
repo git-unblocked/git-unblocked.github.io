@@ -69,32 +69,7 @@
 	}
 		</script>
   <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/among-us.wtf/tag.min.js"></script> 
-   <style>
-        #iframe-container {
-            position: relative;
-            width: 800px;
-            height: 600px;
-            overflow: hidden;
-        }
-        #iframe-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            cursor: pointer;
-        }
-        #play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            display: block;
-        }
-    </style>
+  
   </head>
  
   <body>
@@ -171,31 +146,14 @@
 	</div>
         </div>
       </div>
-   <!--   <div class="container-full">
+      <div class="container-full">
         <div class="box">
           <div class="margin">
             <iframe style="display: block;" id="iframehtml5" width="100%" height="623" src="https://hole-io.com" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-    </div>-->
-	<div id="iframe-container">
-        <img id="iframe-image" src="https://cdn.pixabay.com/photo/2016/10/30/18/15/background-1783903_960_720.png" alt="Image" />
-        <button id="play-button" onclick="loadIframe()">Play</button>
     </div>
-    <iframe id="iframe" src="" style="display: none;"></iframe>
-    <script>
-        function loadIframe() {
-            var iframe = document.getElementById('iframe');
-            var iframeImage = document.getElementById('iframe-image');
-            var playButton = document.getElementById('play-button');
-            
-            iframe.src = 'https://hole-io.com/';
-            iframe.style.display = 'block';
-            iframeImage.style.display = 'none';
-            playButton.style.display = 'none';
-        }
-    </script>
 
             
       <div class="container-full">
