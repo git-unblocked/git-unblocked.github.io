@@ -69,46 +69,7 @@
 	}
 		</script>
   <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/among-us.wtf/tag.min.js"></script> 
-    <style>
-        #iframe-container {
-            position: relative;
-            width: 800px;
-            height: 600px;
-                }
-
-        #overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 800px;
-            height: 600px;
-            background-color: black;
-            opacity: 0.7;
-        }
-
-        #load-iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #my-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-    </style>
+  
   </head>
  
   <body>
@@ -185,30 +146,16 @@
 	</div>
         </div>
       </div>
-     <!--<div class="container-full">
+      <div class="container-full">
         <div class="box">
           <div class="margin">
             <iframe style="display: block;" id="iframehtml5" width="100%" height="623" src="https://hole-io.com" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-    </div>-->
-
-       <div id="iframe-container">
-        <div id="overlay"></div>
-        <button id="load-iframe">Play</button>
-        <iframe width="800" height="623" id="my-iframe" src="" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
     </div>
 
-    <script>
-        document.getElementById('load-iframe').addEventListener('click', function () {
-			
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('my-iframe').src = 'https://hole-io.com/';
-            document.getElementById('my-iframe').style.display = 'block';
-			
-        });
-    </script>     
+            
       <div class="container-full">
         <div class="info-game">
           
