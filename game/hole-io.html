@@ -175,7 +175,24 @@
       <div class="container-full">
         <div class="box">
           <div class="margin">
-            <iframe style="display: block;" id="iframehtml5" width="100%" height="623" src="https://hole-io.com" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
+           <div id="iframe-container">
+    <iframe id="myIframe" width="100%" height="500"></iframe>
+  </div>
+  <div id="overlay">
+    <img src="transparent-image.png" alt="Transparent Image">
+    <button id="play-button" onclick="loadIframe()">Play</button>
+  </div>
+  <script>
+    function loadIframe() {
+      var overlay = document.getElementById("overlay");
+      var iframeContainer = document.getElementById("iframe-container");
+      var iframe = document.getElementById("myIframe");
+      
+      overlay.style.display = "none";
+      iframeContainer.style.display = "block";
+      iframe.src = "https://hole-io.com";
+    }
+  </script>
           </div>
         </div>
       </div>
