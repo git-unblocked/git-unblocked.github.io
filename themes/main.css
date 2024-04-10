@@ -426,7 +426,13 @@ text-transform: uppercase;
 	float: left;
 }
 .Advr{
-	margin-right: 20px;
+	position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 300px;
+      height: 600px;
+      margin-right: 20px;
 	float: right;
 }
 
