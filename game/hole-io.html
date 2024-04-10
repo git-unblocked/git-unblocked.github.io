@@ -69,8 +69,34 @@
 	}
 		</script>
   <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/among-us.wtf/tag.min.js"></script> 
-  
-  </head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1230911244373340"
+   <style>
+        #iframe-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        #iframe-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        #play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+  </head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1230911244373340"
      crossorigin="anonymous"></script>
  
   <body>
@@ -147,15 +173,31 @@
 	</div>
         </div>
       </div>
-      <div class="container-full">
+      <!--<div class="container-full">
         <div class="box">
           <div class="margin">
             <iframe style="display: block;" id="iframehtml5" width="100%" height="623" src="https://hole-io.com" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
           </div>
         </div>
       </div>
+    </div>-->
+<div id="iframe-container">
+        <img id="iframe-image" src="https://img.pixers.pics/pho_wat(s3:700/FO/58/56/12/26/700_FO58561226_15182cc23efe58b561eccdb721ebb6e1.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/cikartmalar-tas-duvar-arka-plan.jpg.jpg" alt="Image" onclick="loadIframe()" />
+        <button id="play-button" onclick="loadIframe()">Play</button>
     </div>
-
+    <iframe id="iframe" src="" style="display: none;"></iframe>
+    <script>
+        function loadIframe() {
+            var iframe = document.getElementById('iframe');
+            var iframeImage = document.getElementById('iframe-image');
+            var playButton = document.getElementById('play-button');
+            
+            iframe.src = 'https://hole-io.com';
+            iframe.style.display = 'block';
+            iframeImage.style.display = 'none';
+            playButton.style.display = 'none';
+        }
+    </script>
             
       <div class="container-full">
         <div class="info-game">
