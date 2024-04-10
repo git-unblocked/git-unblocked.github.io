@@ -187,11 +187,17 @@
     </div>
     <iframe id="iframe" src="" style="display: none;"></iframe>
     <script>
-        function loadIframe() {
+       function loadIframe() {
             var iframe = document.getElementById('iframe');
             var iframeImage = document.getElementById('iframe-image');
             var playButton = document.getElementById('play-button');
-            
+            var overlay = document.getElementById('iframe-container');
+
+            if (!overlay) {
+                console.error('Overlay element not found.');
+                return;
+            }
+
             iframe.src = 'https://hole-io.com';
             iframe.style.display = 'block';
             iframeImage.style.display = 'none';
