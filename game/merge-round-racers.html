@@ -144,14 +144,18 @@
 	</div>
         </div>
       </div>
-      <div class="container-full">
-        <div class="box">
-          <div class="margin">
-            <iframe style="display: block;" id="iframehtml5" width="100%" height="623" src="https://html5-games.io/game/merge-round-racers/" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
+     
+	<div id="iframe-container">
+    <button onclick="show_preroll();" id="play-button">Play</button>
+    <iframe id="iframe" width="100%" height="623" src="https://html5-games.io/game/merge-round-racers/" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>
+</div>
+
+<script>
+    document.getElementById('play-button').addEventListener('click', function() {
+        document.getElementById('iframe').style.display = 'block';
+        document.getElementById('play-button').style.display = 'none';
+    });
+</script> 
 
             
       <div class="container-full">
