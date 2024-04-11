@@ -603,3 +603,32 @@ overflow: hidden;
     border-radius: 50%;
 	    box-shadow: 0 2px 3px 0 rgb(34 75 140 / 26%), 0 2px 5px 0 rgb(255 255 255 / 6%), inset 0 4px 7px 0 rgb(0 14 54 / 52%);
 }
+
+#iframe-container {
+        position: relative;
+        width: 1120px;
+        height: 623px;
+        background-color: black;
+		margin: 0 auto;
+    }
+
+    #play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px 40px;
+        font-size: 24px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        cursor: pointer;
+    }
+
+    #play-button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #iframe {
+        display: none;
+    }
