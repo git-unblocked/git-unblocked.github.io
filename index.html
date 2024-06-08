@@ -62,6 +62,9 @@
     let adSlot1, adSlot2;
       adSlot1 = aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250'); });
       adSlot2 = aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250_2'); });
+	  googletag.pubads().enableSingleRequest();
+      googletag.pubads().disableInitialLoad();
+      googletag.enableServices();
   });
   </script>
   <script>
