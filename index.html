@@ -11,14 +11,21 @@
   <link rel="shortcut icon" type="image/png" href="images/icon192.png" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style3.css" />
-
-   <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/play-unblocked.github.io/tag.min.js"></script>
+  
   <script>
     window.aiptag = window.aiptag || {cmd: []};
 	aiptag.cmd.display = aiptag.cmd.display || [];
 	aiptag.cmd.player = aiptag.cmd.player || [];
-    aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250'); });
-    aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250_2'); });
+
+    let adSlot1, adSlot2;
+    
+    aiptag.cmd.display.push(function () {
+      adSlot1 = aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250'); });
+      adSlot2 = aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250_2'); });
+      aiptag.pubads().enableSingleRequest();
+      aiptag.pubads().disableInitialLoad();
+      aiptag.enableServices();
+    });
   </script>
   <script>
     let isDead = false;
@@ -36,21 +43,21 @@
             isDead = false;
             document
               .querySelector(".resultbox")
-              .insertAdjacentHTML("afterend", `<div id="play-unblocked-github-io_300x250" style="min-width: 300px; min-height: 250px;"></div>`);
+              .insertAdjacentHTML("afterend", `<div id="div-gpt-ad-1717627644369-0" style="min-width: 300px; min-height: 250px;"></div>`);
 				aiptag.cmd.display.push(() => {
-				aiptag.cmd.display;
-				aiptag.cmd.display.push(() => {
-             
+              aiptag.display(adSlot2);
+              aiptag.cmd.display.push(() => {
+                aiptag.pubads().refresh([adSlot2]);
               });
             });
           } else {
             document
               .querySelector("form")
-              .insertAdjacentHTML("afterend", `<div id="play-unblocked-github-io_300x250_2" style="min-width: 300px; min-height: 250px;"></div>`);
-			  aiptag.cmd.display.push(() => {
-              aiptag.cmd.display;
+              .insertAdjacentHTML("afterend", `<div id="div-gpt-ad-1717627490239-0" style="min-width: 300px; min-height: 250px;"></div>`);
+            aiptag.cmd.display.push(() => {
+              aiptag.display(adSlot1);
               aiptag.cmd.display.push(() => {
-              
+                aiptag.pubads().refresh([adSlot1]);
               });
             });
           }
