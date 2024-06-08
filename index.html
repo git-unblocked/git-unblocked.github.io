@@ -12,49 +12,47 @@
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style3.css" />
   <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/play-unblocked.github.io/tag.min.js"></script>
- <script>
-    window.aiptag = window.aiptag || { cmd: [] };
-    aiptag.cmd.display = aiptag.cmd.display || [];
-    aiptag.cmd.player = aiptag.cmd.player || [];
+<script>
+  window.aiptag = window.aiptag || { cmd: [] };
+  aiptag.cmd.display = aiptag.cmd.display || [];
+  aiptag.cmd.player = aiptag.cmd.player || [];
 </script>
+
 
 <script>
-    let isDead = false;
+  let isDead = false;
 
-    console.log = new Proxy(console.log, {
-        apply(target, ctx, args) {
-            const deadSignal = args.includes('ADS: manager.onClose');
-            if (deadSignal) {
-                isDead = true;
-            }
+  console.log = new Proxy(console.log, {
+    apply(target, ctx, args) {
+      const deadSignal = args.includes('ADS: manager.onClose');
+      if (deadSignal) {
+        isDead = true;
+      }
 
-            const adSignal = args.includes('ADS: Request banner');
-            if (adSignal) {
-                if (isDead) {
-                    isDead = false;
-                    document.querySelector(".resultbox").insertAdjacentHTML("afterend", `
-                        <div id="play-unblocked-github-io_300x250_2">
-                            <script type="text/javascript">
-                                aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250_2'); });
-                            </script>
-                        </div>
-                    `);
-                } else {
-                    document.querySelector("form").insertAdjacentHTML("afterend", `
-                        <div id="play-unblocked-github-io_300x250">
-                            <script type="text/javascript">
-                                aiptag.cmd.display.push(function() { aipDisplayTag.display('play-unblocked-github-io_300x250'); });
-                            </script>
-                        </div>
-                    `);
-                }
-            }
-
-            Reflect.apply(target, ctx, args);
+      const adSignal = args.includes('ADS: Request banner');
+      if (adSignal) {
+        if (isDead) {
+          isDead = false;
+          document
+            .querySelector("#play-unblocked-github-io_300x250_2")
+            .insertAdjacentHTML("afterend", `<div id="div-gpt-ad-1717627644369-0" style="min-width: 300px; min-height: 250px;"></div>`);
+          aiptag.cmd.display.push(() => {
+            aiptag.display('play-unblocked-github-io_300x250_2');
+          });
+        } else {
+          document
+            .querySelector("#play-unblocked-github-io_300x250")
+            .insertAdjacentHTML("afterend", `<div id="div-gpt-ad-1717627490239-0" style="min-width: 300px; min-height: 250px;"></div>`);
+          aiptag.cmd.display.push(() => {
+            aiptag.display('play-unblocked-github-io_300x250');
+          });
         }
-    });
-</script>
+      }
 
+      Reflect.apply(target, ctx, args);
+    }
+  });
+</script>
 
 </head>
 
