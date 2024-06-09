@@ -112,10 +112,13 @@ Another engaging aspect of Paper.io is the real-time competition with other play
 
         // Video reklamı başlatan fonksiyon
         function show_videoad() {
+            console.log("show_videoad fonksiyonu çağrıldı"); // Kontrol noktası
             // Reklam kütüphanesinin doğru yüklendiğini veya reklam engelleyici tarafından engellenmediğini kontrol edin
             if (typeof aiptag.adplayer !== 'undefined') {
+                console.log("Reklam kütüphanesi yüklendi"); // Kontrol noktası
                 aiptag.cmd.player.push(function() { aiptag.adplayer.startVideoAd(); });
             } else {
+                console.log("Reklam kütüphanesi yüklenemedi"); // Kontrol noktası
                 // Reklam kütüphanesi yüklenemedi, bu reklam engelleyici, zaman aşımı vb. nedenlerden olabilir.
                 // Lütfen burada içeriğinizi başlatacak olan scriptinizi ekleyin, bu genellikle AIP_COMPLETE'de eklediğiniz script ile aynıdır.
                 alert("Ad Could not be loaded, load your content here");
@@ -128,7 +131,10 @@ Another engaging aspect of Paper.io is the real-time competition with other play
             const playButton = document.getElementById('play');
 
             if (playButton) {
+                console.log("Buton bulundu ve olay dinleyici eklendi"); // Kontrol noktası
                 playButton.addEventListener('click', show_videoad);
+            } else {
+                console.log("Buton bulunamadı"); // Kontrol noktası
             }
         });
     </script>
