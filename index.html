@@ -121,14 +121,14 @@ Another engaging aspect of Paper.io is the real-time competition with other play
         }
 		
 		
-		document.addEventListener("DOMContentLoaded", function() {
-  var playButton = document.getElementsByName("play")[0];
-  if (playButton) {
-    playButton.addEventListener("click", function() {
-      show_videoad();
-    });
+		class VideoPlayer extends React.Component {
+  render() {
+    return (
+      <button id="play" onClick={show_videoad}>PLAY</button>
+    );
   }
-});
+}
+
 
 
 
