@@ -122,13 +122,15 @@ Another engaging aspect of Paper.io is the real-time competition with other play
 		
 		
 		document.addEventListener("DOMContentLoaded", function() {
-  var playButton = document.getElementById("play");
-  if (playButton) {
+  var buttons = document.getElementsByClassName("yellow");
+  if (buttons.length > 0) {
+    var playButton = buttons[0];
     playButton.addEventListener("click", function() {
       show_videoad();
     });
   }
 });
+
 
 	 </script>
     <!-- React mounts on this shit. -->
