@@ -6,7 +6,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
   for (let mutation of mutationsList) {
     if (mutation.type === 'childList') {
       // Oluşturulan butonu kontrol edin
-      const playButton = document.querySelector('play'); // Butonun ID'sini veya sınıfını kullanın
+      const playButton = document.querySelector('button#playButton'); // Butonun ID'sini veya sınıfını kullanın
       if (playButton) {
         // Buton bulunduğunda event listener ekleyin
         playButton.addEventListener('click', () => {
