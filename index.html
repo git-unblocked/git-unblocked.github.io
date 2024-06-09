@@ -121,15 +121,33 @@ Another engaging aspect of Paper.io is the real-time competition with other play
         }
 		
 		
-		class VideoPlayer extends React.Component {
-  render() {
-    return (
-      <button id="play" onClick={show_videoad}>PLAY</button>
-    );
+		// MutationObserver tanımlayın ve başlatın
+const observer = new MutationObserver((mutationsList, observer) => {
+  for (let mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      // Oluşturulan butonu kontrol edin
+      const playButton = document.querySelector('button#playButton'); // Butonun ID'sini veya sınıfını kullanın
+      if (playButton) {
+        // Buton bulunduğunda event listener ekleyin
+        playButton.addEventListener('click', () => {
+          console.log('Butona tıkladınız');
+        });
+
+        // Event listener eklendikten sonra observer'ı durdurun (eğer gerekliyse)
+        observer.disconnect();
+      }
+    }
   }
-}
+});
 
+// Observer'ı başlatmak için gerekli DOM elementini izleyin
+observer.observe(document.querySelector('#game'), {
+  childList: true,
+  subtree: true
+});
 
+// Yukarıdaki kod, 'game' id'li div içinde herhangi bir child eklenmesini izler. 
+// Eklendikten sonra 'playButton' id'li butonu bulur ve event listener ekler.
 
 
 	 </script>
