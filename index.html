@@ -91,6 +91,27 @@ aiptag.cmp = {
 		.close-btn:hover {
 		background-color: #ff1c1c;
 		}
+		
+		#videoAdContainer {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        height: 400px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        z-index: 9999999999999999;
+        text-align: center;
+        padding-top: 100px;
+    }
+    #playButton1 {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
     </style>
 
 
@@ -98,6 +119,17 @@ aiptag.cmp = {
 
 <body>
 <div id="videoad"></div>
+<div id="videoAdContainer">
+    <button id="playButton1">Play</button>
+</div>
+
+<script>
+    document.getElementById('playButton1').addEventListener('click', function() {
+        show_videoad();
+        document.getElementById('videoAdContainer').style.display = 'none';
+    });
+</script>
+
 	<div class="ad" id="ad">
 	<button class="close-btn" onclick="closeDiv()">X</button>
 		<button onclick="show_videoad();">Show Video Ad</button>
