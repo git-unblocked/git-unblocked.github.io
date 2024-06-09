@@ -54,6 +54,24 @@
 			aiptag.adplayer.aipConfig.AIP_COMPLETE();
 		}
 	}
+	
+	document.addEventListener('DOMContentLoaded', (event) => {
+    // Butonun varlığını kontrol et
+    const playButton = document.getElementById('play');
+
+    if (playButton) {
+        playButton.addEventListener('click', () => {
+            show_videoad();
+        });
+    }
+});
+
+function show_videoad() {
+    // Video reklam gösterme kodları buraya eklenecek
+    console.log('Video reklam gösteriliyor...');
+    // Gerçek video reklam gösterme kodunu buraya ekleyin
+}
+
 </script>
 <style>
         #ad {
