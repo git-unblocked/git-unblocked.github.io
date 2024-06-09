@@ -122,39 +122,19 @@ Another engaging aspect of Paper.io is the real-time competition with other play
         function closeDiv() {
             document.querySelector('.ad').style.display = 'none';
         }
-		
-		
-		// MutationObserver tanımlayın ve başlatın
-const observer = new MutationObserver((mutationsList, observer) => {
-  for (let mutation of mutationsList) {
-    if (mutation.type === 'childList') {
-      // Oluşturulan butonu kontrol edin
-      const playButton = document.querySelector('#play'); // Butonun ID'sini veya sınıfını kullanın
-      if (playButton) {
-        // Buton bulunduğunda event listener ekleyin
-        playButton.addEventListener('click', () => {
-          console.log('Butona tıkladınız');
-        });
-
-        // Event listener eklendikten sonra observer'ı durdurun (eğer gerekliyse)
-        observer.disconnect();
-      }
-    }
-  }
-});
-
-// Observer'ı başlatmak için gerekli DOM elementini izleyin
-observer.observe(document.querySelector('#game'), {
-  childList: true,
-  subtree: true
-});
-
-// Yukarıdaki kod, 'game' id'li div içinde herhangi bir child eklenmesini izler. 
-// Eklendikten sonra 'playButton' id'li butonu bulur ve event listener ekler.
-
-
+	
 	 </script>
 
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var playButton = document.getElementById("play");
+            if (playButton) {
+                playButton.addEventListener("click", function() {
+                    show_videoad();
+                });
+            }
+        });
+    </script>
    
   <div id="imaContainer"
     style="position: absolute; z-index: 10000; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); visibility: hidden; overflow: hidden;">
