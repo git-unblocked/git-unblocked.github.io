@@ -1,153 +1,228 @@
 <html>
 
 <head>
-  <script id="gamemonetize-sdk" type="text/javascript" src="js/sdk.js"></script>
-  <meta charset="utf-8" />
-  <meta name="theme-color" content="#2d3331" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <title>Paper.io 2 Unblocked - Github.io</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" href="images/icon192.png" />
-  <link rel="shortcut icon" type="image/png" href="images/icon192.png" />
-  <link rel="stylesheet" href="css/fonts.css" />
-  <link rel="stylesheet" href="css/style3.css" />
-  <script async src="//api.adinplay.com/libs/aiptag/pub/AGV/play-unblocked.github.io/tag.min.js"></script>
-  <script>
-    window.aiptag = window.aiptag || { cmd: [] };
-    aiptag.cmd.display = aiptag.cmd.display || [];
-    aiptag.cmd.player = aiptag.cmd.player || [];
+	<script id="gamemonetize-sdk" type="text/javascript" src="js/sdk.js"></script>
+	<meta charset="utf-8" />
+	<meta name="theme-color" content="#2d3331" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<title>Paper.io 2 Unblocked - Github.io</title>
+	<link rel="manifest" href="manifest.json" />
+	<link rel="icon" type="image/png" href="images/icon192.png" />
+	<link rel="shortcut icon" type="image/png" href="images/icon192.png" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/style3.css" />
+	<script async src="//api.adinplay.com/libs/aiptag/pub/AGV/play-unblocked.github.io/tag.min.js"></script>
+	<script>
+		window.aiptag = window.aiptag || { cmd: [] };
+		aiptag.cmd.display = aiptag.cmd.display || [];
+		aiptag.cmd.player = aiptag.cmd.player || [];
 
-    let isDead = false;
-    console.log = new Proxy(console.log, {
-      apply(target, ctx, args) {
-        const deadSignal = args.includes('ADS: manager.onClose');
-        if (deadSignal) {
-          isDead = true;
-        }
+		let isDead = false;
+		console.log = new Proxy(console.log, {
+			apply(target, ctx, args) {
+				const deadSignal = args.includes('ADS: manager.onClose');
+				if (deadSignal) {
+					isDead = true;
+				}
 
-        const adSignal = args.includes('ADS: Request banner');
-        if (adSignal) {
-          if (isDead) {
-            console.log("Gameover screen.");
+				const adSignal = args.includes('ADS: Request banner');
+				if (adSignal) {
+					if (isDead) {
+						console.log("Gameover screen.");
 
-            isDead = false;
-            document
-              .querySelector(".resultbox")
-              .insertAdjacentHTML("afterend", `<div id='play-unblocked-github-io_970x250_2'></div>`);
-            aiptag.cmd.display.push(function () {
-              aipDisplayTag.display('play-unblocked-github-io_970x250_2');
-            });
-          } else {
-            console.log("Main screen.");
+						isDead = false;
+						document
+							.querySelector(".resultbox")
+							.insertAdjacentHTML("afterend", `<div id='play-unblocked-github-io_970x250_2'></div>`);
+						aiptag.cmd.display.push(function () {
+							aipDisplayTag.display('play-unblocked-github-io_970x250_2');
+						});
+					} else {
+						console.log("Main screen.");
 
-            document
-              .querySelector("form")
-              .insertAdjacentHTML("afterend", `<div id='play-unblocked-github-io_970x250'></div>`);
-            aiptag.cmd.display.push(function () {
-              aipDisplayTag.display('play-unblocked-github-io_970x250');
-            });
-          }
-        }
+						document
+							.querySelector("form")
+							.insertAdjacentHTML("afterend", `<div id='play-unblocked-github-io_970x250'></div>`);
+						aiptag.cmd.display.push(function () {
+							aipDisplayTag.display('play-unblocked-github-io_970x250');
+						});
+					}
+				}
 
-        Reflect.apply(target, ctx, args);
-      }
-    });
-  </script>
-  <style>
-    #ad {
-      position: absolute;
-      z-index: 99999999;
-      top: 150px;
-      left: 20px;
-      width: 300px;
-      height: 600px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      padding: 20px;
-      box-sizing: border-box;
-    }
+				Reflect.apply(target, ctx, args);
+			}
+		});
 
-    .close-btn {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background-color: #ff5c5c;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-      padding: 0;
-    }
+		aiptag.cmp = {
+			show: true,
+			position: "centered",  //centered, bottom
+			button: true,
+			buttonText: "Privacy settings",
+			buttonPosition: "bottom-left" //bottom-left, bottom-right, bottom-center, top-left, top-right
+		}
+		aiptag.cmd.player.push(function () {
+			aiptag.adplayer = new aipPlayer({
+				AD_WIDTH: 960,
+				AD_HEIGHT: 540,
+				AD_DISPLAY: 'center', //default, fullscreen, fill, center, modal-center
+				LOADING_TEXT: 'loading advertisement',
+				PREROLL_ELEM: function () { return document.getElementById('videoad') },
+				AIP_COMPLETE: function (state) {
+					console.log("Video Ad Completed: " + state);
+					document.querySelector("button#play").click();
+				}
+			});
+		});
 
-    .close-btn:hover {
-      background-color: #ff1c1c;
-    }
-  </style>
+		function show_videoad() {
+			if (typeof aiptag.adplayer !== 'undefined') {
+				aiptag.cmd.player.push(function () { aiptag.adplayer.startVideoAd(); });
+			} else {
+				aiptag.adplayer.aipConfig.AIP_COMPLETE();
+			}
+		}
+	</script>
+	<style>
+		#ad {
+			position: absolute;
+			z-index: 99999999;
+			top: 150px;
+			left: 20px;
+			width: 300px;
+			height: 600px;
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			padding: 20px;
+			box-sizing: border-box;
+			overflow-y: scroll;
+		}
+
+		.close-btn {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			background-color: #ff5c5c;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			width: 30px;
+			height: 30px;
+			font-size: 20px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+			padding: 0;
+		}
+
+		.close-btn:hover {
+			background-color: #ff1c1c;
+		}
+
+		#videoAdContainer {
+			position: absolute;
+			z-index: 99999999;
+			top: 160;
+			left: 50%;
+			width: 250px;
+			height: 85px;
+			background-color: #eaec4b;
+			box-sizing: border-box;
+		}
+
+		#playButton1 {
+			background-color: #eaec4b;
+			color: #000;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+	</style>
 
 
 </head>
 
 <body>
-  <div class="ad" id="ad">
-    <button class="close-btn" onclick="closeDiv()">X</button>
-    Paper io unblocked is a popular online multiplayer game developed and published by Voodoo. This game offers a
-    competitive environment where players come together to try to capture as much territory as possible. The main
-    objective of the game is for the player to expand their area using their color. Each player starts as a square of a
-    certain color and moves to enlarge their territory.
+	<div id="videoad"></div>
+	<!--<div id="videoAdContainer">
+    <button id="playButton1">Play</button>
+</div>
 
-    Players create new areas by drawing lines with their color and closing these lines to form enclosed shapes. However,
-    they must be cautious during this process. If a player is hit by another player before completing their line, they
-    are eliminated from the game and lose all their territory. Therefore, quick and strategic movements are crucial
-    aspects of the gameplay.
-
-    The appeal of Paper.io lies in its simple yet addictive gameplay. The graphics are quite minimal and colorful,
-    making the game accessible to players of all ages. The controls are very simple; players only need to use the arrow
-    keys to move. This simplicity allows the game to reach a wide audience.
-
-    Various strategies can be employed in the game. Some players prefer to secure small areas initially and gradually
-    expand them. Others may opt for a more aggressive approach, trying to take over larger territories quickly.
-    Defensive play is also a viable strategy, where players focus on protecting their existing area while slowly growing
-    it. Balancing offensive and defensive tactics is often key to success in Paper.io.
-
-    Another engaging aspect of Paper.io is the real-time competition with other players. This adds a layer of excitement
-    and unpredictability to the game, as players must constantly adapt to the actions of others. The game’s simplicity
-    combined with its competitive nature makes it a favorite among casual gamers looking for a quick and engaging
-    experience.
-  </div>
-  <script type="text/javascript" src="js/window.js"></script>
-  <script type="text/javascript" src="js/loader.js"></script>
-  <script type="text/javascript" src="js/app-new-gm.js?26"></script>
-  <div id="game">
-    <!-- React mounts on this shit. -->
-  </div>
-  <div id="imaContainer"
-    style="position: absolute; z-index: 10000; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); visibility: hidden; overflow: hidden;">
-    <video id="imaVideo"></video>
-  </div>
-  <script>
-    const observer = new MutationObserver((records, observer) => {
-      for (const record of records) {
-        const uiRendered = Array.from(record.addedNodes).some(node => node.id == 'ui');
-        if (uiRendered) {
-          console.log("UI RENDERED!");
-          document.querySelector("button#play").addEventListener("click", event => {
-            show_videoad();
-          });
-        }
-      }
+<script>
+    document.getElementById('playButton1').addEventListener('click', function() {
+        show_videoad();
+        document.getElementById('videoAdContainer').style.display = 'none';
     });
+</script>-->
 
-    observer.observe(document.getElementById("game"), {
-      childList: true,
-    })
-  </script>
+	<div class="ad" id="ad">
+		<button class="close-btn" onclick="closeDiv()">X</button>
+
+		Paper io unblocked is a popular online multiplayer game developed and published by Voodoo. This game offers a
+		competitive environment where players come together to try to capture as much territory as possible. The main
+		objective of the game is for the player to expand their area using their color. Each player starts as a square
+		of a certain color and moves to enlarge their territory.
+
+		Players create new areas by drawing lines with their color and closing these lines to form enclosed shapes.
+		However, they must be cautious during this process. If a player is hit by another player before completing their
+		line, they are eliminated from the game and lose all their territory. Therefore, quick and strategic movements
+		are crucial aspects of the gameplay.
+
+		The appeal of Paper.io lies in its simple yet addictive gameplay. The graphics are quite minimal and colorful,
+		making the game accessible to players of all ages. The controls are very simple; players only need to use the
+		arrow keys to move. This simplicity allows the game to reach a wide audience.
+
+		Various strategies can be employed in the game. Some players prefer to secure small areas initially and
+		gradually expand them. Others may opt for a more aggressive approach, trying to take over larger territories
+		quickly. Defensive play is also a viable strategy, where players focus on protecting their existing area while
+		slowly growing it. Balancing offensive and defensive tactics is often key to success in Paper.io.
+
+		Another engaging aspect of Paper.io is the real-time competition with other players. This adds a layer of
+		excitement and unpredictability to the game, as players must constantly adapt to the actions of others. The
+		game’s simplicity combined with its competitive nature makes it a favorite among casual gamers looking for a
+		quick and engaging experience.
+	</div>
+	<script type="text/javascript" src="js/window.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript" src="js/app-new-gm.js?311"></script>
+	<div id="game">
+
+		<!-- React mounts on this shit. -->
+	</div>
+	<script>
+		function closeDiv() {
+			document.querySelector('.ad').style.display = 'none';
+		}
+
+	</script>
+
+	<div id="imaContainer"
+		style="position: absolute; z-index: 10000; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); visibility: hidden; overflow: hidden;">
+		<video id="imaVideo"></video>
+	</div>
+	<script>
+		const observer = new MutationObserver((records, observer) => {
+			for (const record of records) {
+				const uiRendered = Array.from(record.addedNodes).some(node => node.id == 'ui');
+				if (uiRendered) {
+					observer.disconnect();
+					document.querySelector("button#play")
+						.addEventListener("click", event => {
+							event.preventDefault();
+							show_videoad();
+						},
+							{
+								once: true,
+							}
+						);
+				}
+			}
+		});
+
+		observer.observe(document.getElementById("game"), {
+			childList: true,
+		})
+	</script>
 </body>
 
 </html>
